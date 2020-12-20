@@ -102,88 +102,9 @@
               Login</a
             >
           </li>
-          <li class="items-center">
-            <a
-              class="text-gray-400 text-xs uppercase py-3 font-bold block"
-              href="#pablo"
-              ><i
-                class="fas fa-clipboard-list text-gray-400 mr-2 text-sm"
-              ></i>
-              Register (soon)</a
-            >
-          </li>
-          <li class="items-center">
-            <a
-              class="text-gray-400 text-xs uppercase py-3 font-bold block"
-              href="#pablo"
-              ><i class="fas fa-tools text-gray-400 mr-2 text-sm"></i>
-              Settings (soon)</a
-            >
-          </li>
         </ul>
         <!-- Divider -->
         <hr class="my-4 md:min-w-full" />
-        <!-- Heading -->
-        <h6
-          class="md:min-w-full text-gray-600 text-xs uppercase font-bold block pt-1 pb-4 no-underline"
-        >
-          Documentation
-        </h6>
-        <!-- Navigation -->
-        <ul
-          class="md:flex-col md:min-w-full flex flex-col list-none md:mb-4"
-        >
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/styles"
-              ><i
-                class="fas fa-paint-brush mr-2 text-gray-500 text-base"
-              ></i>
-              Styles</a
-            >
-          </li>
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/alerts"
-              ><i class="fab fa-css3-alt mr-2 text-gray-500 text-base"></i>
-              CSS Components</a
-            >
-          </li>
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600 text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/vue/alerts"
-              ><i class="fab fa-vuejs mr-2 text-gray-500 text-base"></i>
-              VueJS</a
-            >
-          </li>
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/react/alerts"
-              ><i class="fab fa-react mr-2 text-gray-500 text-base"></i>
-              React</a
-            >
-          </li>
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/angular/alerts"
-              ><i class="fab fa-angular mr-2 text-gray-500 text-base"></i>
-              Angular</a
-            >
-          </li>
-          <li class="inline-flex">
-            <a
-              class="text-gray-800 hover:text-gray-600  text-sm block mb-4 no-underline font-semibold"
-              href="#/documentation/javascript/alerts"
-              ><i class="fab fa-js-square mr-2 text-gray-500 text-base"></i>
-              Javascript</a
-            >
-          </li>
-        </ul>
       </div>
     </div>
   </nav>

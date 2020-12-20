@@ -1,22 +1,16 @@
 import Vue from 'vue'
-import Dashboard from './views/Dashboard.vue'
-
+import App from '@/App.vue'
+import router from '@/router'
+import store from '@/store'
+import VueSweetalert2 from 'vue-sweetalert2'
 import "@fortawesome/fontawesome-free/css/all.min.css";
+
+Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false
 
-const routes = {
-  '/dashboard': Dashboard
-}
-
 new Vue({
-  data: {
-    currentRoute: window.location.pathname
-  },
-  computed: {
-    ViewComponent () {
-      return routes[this.currentRoute] || Dashboard
-    }
-  },
-  render (h) { return h(this.ViewComponent) },
+  store,
+  router,
+  render: h => h(App)
 }).$mount('#app')
