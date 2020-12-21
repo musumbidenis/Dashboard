@@ -25,12 +25,13 @@
                   </div>
                 </div>
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                  <form>
+                  <form @submit.prevent="login" method="POST">
                     <div class="relative w-full mb-3">
                       <label
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         >Employee Id</label
                       ><input
+                        v-model="form.employeeId"
                         class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-xs shadow focus:outline-none focus:shadow-outline w-full"
                         placeholder="e.g emp/msu/9081/017"
                         style="transition: all 0.15s ease 0s;"
@@ -42,6 +43,7 @@
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         >ID NUMBER</label
                       ><input
+                        v-model="form.idNumber"
                         class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-xs shadow focus:outline-none focus:shadow-outline w-full"
                         placeholder="e.g 20030405"
                         style="transition: all 0.15s ease 0s;"
@@ -79,54 +81,20 @@
         </div>
           <footer class="absolute w-full bottom-0 bg-gray-900 pb-6">
             <div class="container mx-auto px-4">
-            <hr class="mb-6 border-b-1 border-gray-700" />
+            <hr class="mb-1 border-b-1 border-gray-700" />
             <div
-                class="flex flex-wrap items-center md:justify-between justify-center"
+               class="flex flex-wrap items-center md:justify-between justify-center"
             >
-                <div class="w-full md:w-4/12 px-4">
-                <div class="text-sm text-white font-semibold py-1">
+              <div class="w-full md:w-4/12 px-4">
+                <div class="text-xs text-white font-semibold py-1">
                     Copyright © {{date}}
                     <a
-                    href="https://www.creative-tim.com"
-                    class="text-white hover:text-gray-400 text-sm font-semibold py-1"
-                    >Creative Tim</a
+                    href="https://www.musumbidenis.co.ke"
+                    class="text-white hover:text-gray-400 text-xs py-1"
+                    >Musumbi Denis</a
                     >
                 </div>
-                </div>
-                <div class="w-full md:w-8/12 px-4">
-                <ul
-                    class="flex flex-wrap list-none md:justify-end  justify-center"
-                >
-                    <li>
-                    <a
-                        href="https://www.creative-tim.com"
-                        class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
-                        >Creative Tim</a
-                    >
-                    </li>
-                    <li>
-                    <a
-                        href="https://www.creative-tim.com/presentation"
-                        class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
-                        >About Us</a
-                    >
-                    </li>
-                    <li>
-                    <a
-                        href="http://blog.creative-tim.com"
-                        class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
-                        >Blog</a
-                    >
-                    </li>
-                    <li>
-                    <a
-                        href="https://github.com/creativetimofficial/argon-design-system/blob/master/LICENSE.md"
-                        class="text-white hover:text-gray-400 text-sm font-semibold block py-1 px-3"
-                        >MIT License</a
-                    >
-                    </li>
-                </ul>
-                </div>
+              </div>
             </div>
             </div>
         </footer>
@@ -139,6 +107,18 @@ import NavbarComponent from "@/components/Navbar.vue";
 export default {
   components: {
     NavbarComponent,
+  },
+  data() {
+    return {
+      form:{
+
+      },
+      date: new Date().getFullYear()
+    }
+  },
+
+  validations: {
+
   }
 }
 </script>
