@@ -1,6 +1,5 @@
 <template>
   <div>
-    <navbar-component></navbar-component>
     <main>
       <section class="absolute w-full h-full">
         <div
@@ -25,17 +24,21 @@
                   </div>
                 </div>
                 <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
-                  <form @submit.prevent="login" method="POST">
+                  <form @submit.prevent="submit" method="POST" novalidate>
                     <div class="relative w-full mb-3">
                       <label
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         >Employee Id</label
                       ><input
-                        v-model="form.employeeId"
+                        v-model="employeeId"
+                        @blur="$v.employeeId.$touch()"
                         class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-xs shadow focus:outline-none focus:shadow-outline w-full"
                         placeholder="e.g emp/msu/9081/017"
                         style="transition: all 0.15s ease 0s;"
                       />
+                      <template v-if="$v.employeeId.$error">
+                        <small class="text-red-500" v-if="!$v.employeeId.required">Employee Id is required*</small>
+                      </template>
                     </div>
                     <div class="relative w-full mb-3">
                       <label
@@ -43,11 +46,17 @@
                         class="block uppercase text-gray-700 text-xs font-bold mb-2"
                         >ID NUMBER</label
                       ><input
-                        v-model="form.idNumber"
+                        v-model="idNumber"
+                        @blur="$v.idNumber.$touch()"
                         class="px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-xs shadow focus:outline-none focus:shadow-outline w-full"
                         placeholder="e.g 20030405"
                         style="transition: all 0.15s ease 0s;"
                       />
+                      <template v-if="$v.idNumber.$error">
+                        <small class="text-red-500" v-if="!$v.idNumber.required">Id Number is required*</small>
+                        <small class="text-red-500" v-else-if="!$v.idNumber.numeric">Only numeric values allowed*</small>
+                        <small class="text-red-500" v-else-if="!$v.idNumber.checkLength">Id Number should be 8 digits long*</small>
+                      </template>
                     </div>
                     <div>
                       <label class="inline-flex items-center cursor-pointer"
@@ -62,6 +71,7 @@
                     </div>
                     <div class="text-center mt-6">
                       <button
+                        @click="submit"
                         class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
                         type="button"
                         style="transition: all 0.15s ease 0s;"
@@ -103,22 +113,77 @@
   </div>
 </template>
 <script>
-import NavbarComponent from "@/components/Navbar.vue";
+import { required, numeric } from "vuelidate/lib/validators";
+import axios from 'axios';
+
 export default {
   components: {
-    NavbarComponent,
   },
   data() {
     return {
-      form:{
-
-      },
+      employeeId:'',
+      idNumber:'',
       date: new Date().getFullYear()
     }
   },
 
   validations: {
+      employeeId: {
+        required,
+      },
 
+      idNumber:{
+        required,
+        numeric,
+        checkLength(value){
+          return value.trim().length === 8;
+        }
+      }
+  },
+
+  methods: {
+    submit() {
+      this.$v.$touch();
+      // if its still pending or an error is returned do not submit
+      if (!this.$v.$invalid){
+        axios.post('http://localhost:8000/api/login', {employeeId: this.employeeId, idNumber: this.idNumber})
+        .then((response)=>{
+          if(response.data == "success"){
+
+            /**User autheticated == true */
+            this.$store.commit("SET_AUTHETICATION", true);
+
+            /**Navigate to the dashboard page &&
+             * Display success message
+             */
+            this.$router.push({name: 'Dashboard'});
+            this.$swal(({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 9000,
+              timerProgressBar: true,
+              icon: 'success',
+              title: 'Login successfull',
+            }));
+
+          }else if(response.data == "error"){
+
+            /**Display an error message */
+            this.$swal(({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 9000,
+              timerProgressBar: true,
+              icon: 'error',
+              title: 'Incorrect details',
+            }));
+            
+          }
+        })
+      }
+    }
   }
 }
 </script>
