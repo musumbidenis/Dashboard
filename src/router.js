@@ -3,6 +3,7 @@ import Router from "vue-router";
 // import store from '@/store'
 import Dashboard from "@/views/Dashboard.vue";
 import Login from "@/views/Login.vue";
+import Register from "@/views/Register.vue";
 
 Vue.use(Router);
 export default new Router({
@@ -41,10 +42,10 @@ export default new Router({
             name: "Login",
             component: Login,
         },
-        // {
-        //     path: "/register",
-        //     name: "Signup",
-        //     component: Signup,
-        // },
+        {
+            path: "/register",
+            name: "Register",
+            component: Register,
+        },
     ],
 });

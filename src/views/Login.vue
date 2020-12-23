@@ -80,7 +80,7 @@
                       </button>
                     </div>
                     <div class="inline-flex items-center flex-wrap ">
-                        <small class="text-gray-900 font-bold mr-2">Don't have an account?</small>
+                        <small class="text-gray-900 font-bold mr-1">Don't have an account?</small>
                         <router-link to="/register" class="text-gray-700 font-bold"><small>Register</small></router-link>
                     </div>
                   </form>
@@ -89,8 +89,8 @@
             </div>
           </div>
         </div>
-          <footer class="absolute w-full bottom-0 bg-gray-900 pb-6">
-            <div class="container mx-auto px-4">
+        <footer class="absolute w-full bottom-0 bg-gray-900 pb-6">
+          <div class="container mx-auto px-4">
             <hr class="mb-1 border-b-1 border-gray-700" />
             <div
                class="flex flex-wrap items-center md:justify-between justify-center"
