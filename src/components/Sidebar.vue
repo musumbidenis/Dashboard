@@ -71,11 +71,11 @@
         <!-- Navigation -->
         <ul class="md:flex-col md:min-w-full flex flex-col list-none">
           <li class="items-center">
-            <a
+            <router-link
               class="text-pink-500 hover:text-pink-600 text-xs uppercase py-3 font-bold block"
-              href="#/dashboard"
+              to="/dashboard"
               ><i class="fas fa-tv opacity-75 mr-2 text-sm"></i>
-              Dashboard</a
+              Dashboard</router-link
             >
           </li>
           <li class="items-center">
@@ -87,11 +87,11 @@
             >
           </li>
           <li class="items-center">
-            <a
+            <router-link
               class="text-gray-800 hover:text-gray-600 text-xs uppercase py-3 font-bold block"
-              href="#/profile"
+              to="/assets"
               ><i class="fas fa-user-circle text-gray-500 mr-2 text-sm"></i>
-              Profile Page</a
+              Assets</router-link
             >
           </li>
           <li class="items-center">

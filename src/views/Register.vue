@@ -259,7 +259,7 @@ export default {
             /**Navigate to the dashboard page &&
              * Display success message
              */
-            this.$router.push({name: 'Dashboard'});
+            this.$router.push({name: 'Login'});
             this.$swal(({
               toast: true,
               position: 'top-end',
@@ -267,7 +267,7 @@ export default {
               timer: 9000,
               timerProgressBar: true,
               icon: 'success',
-              title: 'Login successfull',
+              title: 'Registration successfull',
             }));
 
           }else if(response.data == "technician exists"){

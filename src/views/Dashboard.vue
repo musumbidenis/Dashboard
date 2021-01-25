@@ -1,7 +1,7 @@
 <template>
   <div>
     <sidebar-component></sidebar-component>
-    <div class="relative md:ml-64 bg-gray-200">
+    <div class="relative md:ml-64">
       <navbar-component></navbar-component>
       <!-- Header -->
       <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
